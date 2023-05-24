@@ -1,0 +1,17 @@
+.countries{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search input{
+    height: 20px;
+    margin-left: 10px;
+    width: 200px;
+}
