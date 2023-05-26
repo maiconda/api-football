@@ -1,17 +1,21 @@
-.countries{
+.results{
+    font-weight: 500;
+    font-size: 22px;
+    margin:22px 0 25px 0;
+}
+
+.no-results{
+    background-color: white;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    margin-top: 20px;
-}
-
-.search {
-    display: flex;
     align-items: center;
+    padding: 22px;
+    border: 1px solid rgb(196, 196, 196);
 }
 
-.search input{
-    height: 20px;
-    margin-left: 10px;
-    width: 200px;
+.no-results p{
+    margin: 0;
+    font-weight: 500;
+    font-size: 18px;
 }

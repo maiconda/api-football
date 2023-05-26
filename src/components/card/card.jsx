@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 
 function Card(props){
     return(
-        <div className='card'>
-            <img src={props.img} alt=""/>
+        <div onClick={props.onClick} className='card'>
+            <div className={`card-img-div ${props.proportion}`}>
+                <img src={props.img} alt=""/>
+            </div>
             <h2>{props.name}</h2>
-            <Link className='card-button' to={'leagues/'+props.url}><button>Abrir</button></Link>
+            <button className='card-button'>Abrir</button>
         </div>
     )
 }

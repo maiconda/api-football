@@ -4,7 +4,7 @@ import './navbar.css'
 
 function Navbar(){
 
-    const {apiKey, setLogged, logged} = useContext(UserContext)
+    const {setLogged, logged} = useContext(UserContext)
 
     const loggout = () => {
       setLogged({staus :false})

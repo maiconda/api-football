@@ -4,16 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../UserContext';
 import './countries.css'
 import Card from "../../components/card/card";
+import Loading from "../../components/loading/loading";
+import Search from "../../components/search/search";
 
 function Countries(){
 
     const navigate = useNavigate();
-    const {logged, requestConfig} = useContext(UserContext)
+    const {logged, requestUrl, apiKey, setActualCountry} = useContext(UserContext)
     const [countries, setCountries] = useState([])
-    const [numCountries, setNumCountries] = useState(0)
     const [input, setInput] = useState('')
-
-    console.log(numCountries)
+    const [lastSearch, setLastSearch] = useState('')
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         if (!logged.status) {
@@ -25,10 +26,17 @@ function Countries(){
 
 
     const getCountries = () => {
-        
-        axios.get('https://v3.football.api-sports.io/countries', requestConfig).then((res) => {
+        setLoading(true)
+        setLastSearch('')
+        axios.get(`${requestUrl}/countries`, {
+            headers: {
+                'X-RapidAPI-Key': apiKey,
+                'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+                'x-apisports-key' : apiKey
+            }
+        }).then((res) => {
             setCountries(res.data.response)
-            setNumCountries(res.data.results)
+            setLoading(false)
             console.log(res)
         })
     }
@@ -40,33 +48,71 @@ function Countries(){
     
     const searchCountry = (e) => {
         e.preventDefault()
-        axios.get(`https://v3.football.api-sports.io/countries?search=${input}`, requestConfig).then((res) => {
-            setCountries(res.data.response)
-        })
-        setInput('')
+        if (input != '') {
+            setLoading(true)
+            setLastSearch('')
+            setInput('')
+            axios.get(`${requestUrl}/countries`,{
+                params: {
+                    search: input
+                },
+                headers: {
+                    'X-RapidAPI-Key': apiKey,
+                    'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+                    'x-apisports-key' : apiKey
+                }
+            }).then((res) => {
+                setCountries(res.data.response)
+                setLastSearch(input)
+                setLoading(false)
+            })
+        }
     }
 
     return(
     <Fragment>
-        <div>
-            <form onSubmit={searchCountry} className="search">
-                <p>Pesquisar país:</p>
-                <input value={input} onChange={handleChange} type="text" />
-            </form>
-            {countries.length < numCountries && <button onClick={getCountries}>Limpar Pesquisa</button>}
-        </div>
+        <Search
+            search = {searchCountry}
+            input = {input}
+            handleChange = {handleChange}
+            lastSearch = {lastSearch}
+            get = {getCountries}
+        />
         
+        {lastSearch != '' && <h3 className="results">{lastSearch} - {countries.length} Resultados</h3>}
 
-        <div className="countries">
-        {countries.map((country, index) => (
-            <Card
-                key={index + country.name}
-                name={country.name}
-                img={country.flag != null ? country.flag : 'https://mrconfeccoes.com.br/wp-content/uploads/2018/03/default.jpg'}
-                url={country.code}
-            />
-        ))}
+        {loading == true ? 
+
+        <Loading/> :
+
+        <div className="cards-div">
+
+        {countries.length === 0 ?
+        <div className="no-results">
+            <p>Nenhum resultado encontrado</p>
+        </div> 
+        :
+        countries.map((country, index) => {
+            if (country.name != 'World') {
+                return (
+                    <Card
+                    key={index + country.name}
+                    name={country.name}
+                    img={country.flag}
+                    onClick={() => {
+                        navigate(`/leagues/${country.code}`)
+                        setActualCountry({
+                            name: country.name,
+                            code: country.code
+                        })
+                    }}
+                    proportion='flag'
+                    />
+                )
+            }
+        })}    
         </div>
+        }
     </Fragment>
     )
 }

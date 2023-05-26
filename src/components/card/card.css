@@ -1,33 +1,98 @@
 .card{
-    width: 210px;
+    width: calc(25% - 10px);
     padding: 10px;
     border-radius: 12px;
     display: flex;
     justify-content: center;
+    margin: 5px;
     flex-wrap: wrap;
     background-color: rgb(255, 255, 255);
-    margin: 5px;
+    box-sizing: border-box;
+    align-content: space-between;
+}
+
+.card-img-div{
+    overflow: hidden;
+    width: 100%;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
+    background-color: rgba(245, 245, 245, 0.438);
+}
+
+.flag{
+    aspect-ratio: 3/2;
+}
+
+.flag img{
+    object-fit:cover;
+}
+
+.square{
+    aspect-ratio: 1/1;
+    padding: 20px;
+}
+
+.square img{
+    object-fit: scale-down;
 }
 
 .card img{
     width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 12px;
+    transition: all 0.5s;
+}
+
+.card img:hover{
+    transform: scale(1.1);
 }
 
 .card h2{
-    margin: 10px 0;
+    margin: 15px 5px;
+    text-align: center;
+    font-weight: 600;
 }
 
-.card-button {
-    width: 100%;
-}
-
-.card-button button{
+.card-button{
     width: 100%;
     height: 35px;
     border-radius: 8px;
     border: none;
     cursor: pointer;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.card-button:hover{
+    transform: scale(1.03);
+    background-color: rgb(27, 27, 27);
+}
+
+@media (max-width: 775px){
+    .card{
+        width: calc(33.3333% - 10px);
+    } 
+}
+
+@media (max-width: 575px){
+    .card{
+        width: calc(50% - 10px);
+    } 
+}
+
+@media (max-width: 400px){
+    .card{
+        width: 100%;
+        margin: 5px 0;
+    } 
+
+    .square{
+        padding: 34px;
+    }
+    
+    .square img{
+        object-fit:fill
+    }
 }

@@ -15,17 +15,14 @@ export function UserProvider({children}) {
     localStorage.setItem('logged', JSON.stringify(logged));
   }, [logged]);
 
-  const [apiKey] = useState('e1a82cd921e8de94f8d05e061a0abf5f')
+  const [apiKey] = useState('da0f443a048c42d3e571e1e9ef4b2ae3')
 
-  const [requestConfig] = useState({
-      method: 'get',
-      headers: {
-        'x-apisports-key': apiKey
-      }
-  })
+  const [requestUrl] = useState('https://v3.football.api-sports.io')
+  const [actualCountry, setActualCountry] = useState({})
+  const [actualLeague, setActualLeague] = useState({})
 
   return (
-    <UserContext.Provider value={{logged, setLogged, apiKey, requestConfig}}>
+    <UserContext.Provider value={{logged, setLogged, apiKey, requestUrl, actualCountry, setActualCountry, actualLeague, setActualLeague}}>
       {children}
     </UserContext.Provider>
   );
