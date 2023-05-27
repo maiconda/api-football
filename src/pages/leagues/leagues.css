@@ -97,7 +97,8 @@
 
 @media (max-width: 420px){
     .seasons-div{
-        min-width: 230px;
+        min-width: 260px;
+        padding: 20px;
     }
   }
 

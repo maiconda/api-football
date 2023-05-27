@@ -53,3 +53,24 @@
     margin-left: 15px;
     border-radius: 8px;
 }
+
+.clean-button-mobile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+    margin-left: 10px;
+    display: none;
+}
+
+@media (max-width: 400px){
+    .clean-button{
+        display: none;
+    }
+    
+    .clean-button-mobile{
+        display: flex;
+    }
+}

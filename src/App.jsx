@@ -11,6 +11,7 @@ import Navbar from './components/navbar/navbar'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { UserProvider } from './UserContext';
 import Teams from './pages/teams/teams'
+import Team from './pages/team/team'
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
         <Route path='/leagues/:id' element={<Leagues/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/teams/:leagueId/:season' element={<Teams/>}/>
+        <Route path='/team/:leagueId/:season/:teamId' element={<Team/>}/>
       </Routes>
       </main>
     </UserProvider>

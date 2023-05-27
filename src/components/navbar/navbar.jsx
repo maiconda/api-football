@@ -8,12 +8,18 @@ function Navbar(){
 
     const loggout = () => {
       setLogged({staus :false})
+      document.querySelector('.seasons-div').style.opacity = '0'
+      document.querySelector('.container').style.opacity = '0'
+      setTimeout(() => {
+          document.querySelector('.seasons-div').style.zIndex = '-1'
+          document.querySelector('.container').style.zIndex = '-1'
+      }, 0);
     }
 
     return(
         <nav>
             <div>
-                <h1>API - Football</h1>
+                <h1>Football Site</h1>
                 {logged.status == true &&
                 <button onClick={loggout}>Sair</button>
                 }

@@ -83,16 +83,24 @@
 }
 
 @media (max-width: 400px){
-    .card{
-        width: 100%;
-        margin: 5px 0;
-    } 
 
-    .square{
-        padding: 34px;
+    .card h2{
+        margin: 8px 0px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 17px;
     }
-    
-    .square img{
-        object-fit:fill
+
+    .card-button{
+        font-size: 13px;
+        width: 100%;
+        height: 28px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        background-color: black;
+        color: white;
+        font-weight: 600;
+        transition: .2s;
     }
 }

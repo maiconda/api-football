@@ -1,0 +1,198 @@
+.team-description {
+    font-weight: 500;
+    font-size: 23px;
+    margin: 0;
+    margin-top: 35px;
+    text-align: center;
+    border-top: 1px solid rgb(133, 133, 133);
+    padding-top: 27px;
+}
+
+.player-description{
+    font-weight: 500;
+    font-size: 23px;
+    margin: 0;
+    text-align: center;
+    padding-top: 14px;
+    margin-bottom: 20px;
+}
+
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+    margin-top: 17px;
+    font-size: 16px;
+    margin-bottom: 38px;
+}
+
+table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+}
+
+table th,
+table td {
+    padding: .625em;
+    text-align: center;
+}
+
+table th {
+    font-weight: 600;
+}
+
+@media screen and (max-width: 600px) {
+    table {
+        border: 0;
+    }
+
+    table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    table tr {
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+    }
+
+    table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+    }
+
+    table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: 600;
+    }
+
+    table td:last-child {
+        border-bottom: 0;
+    }
+}
+
+.field{
+    background-image: url('https://i.pinimg.com/originals/4f/b1/5d/4fb15d509d7c06570504f9cc0043ef45.jpg');
+    background-size: cover;
+    background-position: center;
+    max-width: 600px;
+    aspect-ratio: 1.5/1;
+    margin: 0 auto;
+    margin-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 70px 20px 15px;
+    box-sizing: border-box;
+    margin-bottom: 37px;
+}
+
+.lineup-divisor{
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 40px;
+    align-content: space-around;
+}
+
+.lineup-0{
+    margin-left: 100px;
+}
+
+.player-circle{
+    background-color: rgb(255, 255, 255);
+    min-height: 40px;
+    min-width: 40px;
+    border-radius: 100%;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+@media screen and (max-width: 640px) {
+
+    .lineup-divisor{
+        width: 6vh;
+    }
+    
+    .player-circle{
+        min-height: 6vw;
+        min-width: 6vw;
+        border: 0.4vw solid black;
+    }
+
+    .field{
+        padding: 2vw 5vw 2vw 2vw;
+    }
+}
+
+.chart{
+    width: 100%;
+    background-color: #f8f8f8;
+    padding: 15px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border: 1px solid #ccccccc9;
+}
+
+.chart-description{
+    display: flex;
+    min-width: 55px;
+    max-width: 55px;
+    flex-wrap: wrap;
+    border-right: 1px solid rgb(109, 109, 109);
+    margin-right: 10px;
+    font-weight: 400;
+}
+
+.chart-description div{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    width: 100%;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.chart-values{
+    width: calc(100% - 50px);
+    box-sizing: border-box;
+}
+
+.chart-values div{
+    height: 30px;
+    margin-bottom: 5px ;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(47,47,47,1) 100%);
+    border-radius: 5px;
+}
+
+.chart-container{
+    display: flex;
+    width: 100%;
+}
+
+.chart-numbers{
+    display: flex;
+    margin-left:67px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.chart-numbers span{
+    height: 8px;
+    width: 1px;
+    background-color: rgb(0, 0, 0);
+}
