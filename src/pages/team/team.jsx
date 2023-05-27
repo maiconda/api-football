@@ -97,8 +97,10 @@ function Team() {
                     }
                     {statistics.fixtures != undefined &&
                         <Fragment>
-                            {lineup.length > 0 &&
+                            
                                 <section>
+                                {lineup.length > 0 ? 
+                                <Fragment>
                                     <h3 className="team-description">Formação mais utilizada: {statistics.lineups[0].formation}</h3>
                                     <div className="field">
                                         <div className="lineup-divisor">
@@ -113,7 +115,12 @@ function Team() {
                                         ))}
 
                                     </div>
-                                </section>}
+                                </Fragment> : 
+                                <Fragment>
+                                    <h3 className="team-description-2">Formação mais Utilizada</h3>
+                                    <div className="no-results">Formação mais Utilizada Indisponível</div>
+                                </Fragment>}
+                                </section>
                             <section>
                                 <h3 className="team-description">Tabela de Resultados:</h3>
                                 <table>
