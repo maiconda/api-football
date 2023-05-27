@@ -4,7 +4,7 @@ Caso a aplicação não esteja funcionando, pode ser que tenha chegado ao númer
 
 ## Rode na Web
 
-Para rodar o projeto na web, basta clicar no botão a seguir
+Para rodar o projeto na web, basta clicar no botão a seguir.
 
 
 [![Blog](https://img.shields.io/badge/Football-project-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://footballprojectapi.netlify.app/)
