@@ -8,12 +8,8 @@ function Navbar(){
 
     const loggout = () => {
       setLogged({staus :false})
-      document.querySelector('.seasons-div').style.opacity = '0'
       document.querySelector('.container').style.opacity = '0'
-      setTimeout(() => {
-          document.querySelector('.seasons-div').style.zIndex = '-1'
-          document.querySelector('.container').style.zIndex = '-1'
-      }, 0);
+      document.querySelector('.container').style.zIndex = '-1'
     }
 
     return(
