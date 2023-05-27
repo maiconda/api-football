@@ -15,7 +15,7 @@ export function UserProvider({children}) {
     localStorage.setItem('logged', JSON.stringify(logged));
   }, [logged]);
 
-  const [apiKey] = useState('435cc8828981d6abde246ad15e99ee54')
+  const [apiKey] = useState('de58ec3aea270ad021f173e95acd4bea')
 
   const [requestUrl] = useState('https://v3.football.api-sports.io')
   const [actualCountry, setActualCountry] = useState({})
