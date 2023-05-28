@@ -33,6 +33,7 @@ function App() {
       <main>
       <Routes>
         <Route path='/' element={<Countries/>}/>
+        <Route path='*' element={<Countries/>}/>
         <Route path='/countries' element={<Countries/>}/>
         <Route path='/leagues/:id' element={<Leagues/>}/>
         <Route path='/login' element={<Login/>}/>
